@@ -90,7 +90,6 @@ bindkey '\e[B' history-search-forward
 plugins=(aliases alias-finder colored-man-pages colorize command-not-found common-aliases docker docker-compose git git-auto-fetch gpg-agent sudo zsh-autosuggestions zsh-navigation-tools zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
    if [ -f ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh ]; then
         . ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
