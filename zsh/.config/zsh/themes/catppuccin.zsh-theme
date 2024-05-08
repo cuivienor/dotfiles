@@ -23,6 +23,7 @@ esac
   SEGMENT_LEAD=$'\ue0b6'
   SEGMENT_SEPARATOR=$'\ue0b4'
   ARCH=$'\uf303'
+  DEBIAN=$'\uf306' 
 }
 
 # Begin a segment
@@ -30,7 +31,7 @@ esac
 # rendering default background/foreground.
 prompt_begin() {
   echo -n "%{$fg[magenta]%}$SEGMENT_LEAD"
-  echo -n "%{$fg[black]%}%{$bg[magenta]%}$ARCH"
+  echo -n "%{$fg[black]%}%{$bg[magenta]%}$DEBIAN"
 }
 
 prompt_segment() {
