@@ -408,7 +408,10 @@ require("lazy").setup({
 			end, { desc = "[S]earch [N]eovim files" })
 		end,
 	},
-
+	{
+		"pearofducks/ansible-vim",
+		opt = {},
+	},
 	{ -- LSP Configuration & Plugins
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -592,6 +595,11 @@ require("lazy").setup({
 						},
 					},
 				},
+				ansiblels = {
+					filetypes = {
+						"yaml.ansible",
+					},
+				},
 				lua_ls = {
 					-- cmd = {...},
 					-- filetypes = { ...},
@@ -623,6 +631,7 @@ require("lazy").setup({
 				"stylua", -- Used to format Lua code
 				"shellcheck",
 				"shfmt",
+				"ansible-lint",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
