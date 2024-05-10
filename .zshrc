@@ -24,6 +24,7 @@ setopt HIST_EXPIRE_DUPS_FIRST
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 
+eval "$(zoxide init zsh)"
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
