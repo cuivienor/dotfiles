@@ -632,6 +632,13 @@ require("lazy").setup({
 				"shellcheck",
 				"shfmt",
 				"ansible-lint",
+				yamlfix = {
+					env = {
+						YAMLFIX_WHITELINES = "0",
+						YAMLFIX_SECTION_WHITELINES = "1",
+					},
+				},
+				"yamllint",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -669,7 +676,7 @@ require("lazy").setup({
 				-- Disable "format_on_save lsp_fallback" for languages that don't
 				-- have a well standardized coding style. You can add additional
 				-- languages here or re-enable it for the disabled ones.
-				local disable_filetypes = { c = true, cpp = true }
+				local disable_filetypes = { c = true, cpp = true, ["yaml.ansible"] = true }
 				return {
 					timeout_ms = 500,
 					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
@@ -678,6 +685,7 @@ require("lazy").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				sh = { "shfmt" },
+				["yaml"] = { "yamlfix" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
