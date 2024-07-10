@@ -524,6 +524,12 @@ require("lazy").setup({
 						},
 					},
 				},
+				terraformls = {
+					filetypes = {
+						"tf",
+						"terraform",
+					},
+				},
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -544,6 +550,7 @@ require("lazy").setup({
 				"ansible-lint",
 				"yamlfix",
 				"yamllint",
+				"tflint",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -591,6 +598,7 @@ require("lazy").setup({
 				lua = { "stylua" },
 				sh = { "shfmt" },
 				yaml = { "yamlfix" },
+				tf = { "tflint" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
