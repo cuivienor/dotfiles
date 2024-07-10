@@ -28,4 +28,4 @@ eval "$(zoxide init zsh)"
 plugins=(aliases alias-finder git git-auto-fetch gpg-agent sudo zsh-autosuggestions zsh-navigation-tools zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-
+eval "$(starship init zsh)"
