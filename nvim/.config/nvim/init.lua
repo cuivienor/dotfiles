@@ -509,6 +509,8 @@ require("lazy").setup({
 						},
 					},
 				},
+				clangd = {},
+				["cmake-language-server"] = {},
 				ansiblels = {},
 				lua_ls = {
 					-- cmd = {...},
