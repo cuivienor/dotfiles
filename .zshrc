@@ -30,4 +30,6 @@ plugins=(aliases alias-finder git git-auto-fetch gpg-agent sudo zsh-autosuggesti
 source $ZSH/oh-my-zsh.sh
 eval "$(starship init zsh)"
 
+source <(fzf --zsh)
+
 export XDG_CONFIG_HOME="$HOME/.config/"
