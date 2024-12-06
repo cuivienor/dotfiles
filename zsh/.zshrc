@@ -1,5 +1,3 @@
-export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:/snap/bin:$PATH
-
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="catppuccin"
@@ -33,3 +31,9 @@ eval "$(starship init zsh)"
 source <(fzf --zsh)
 
 export XDG_CONFIG_HOME="$HOME/.config/"
+
+# Modify Path
+if [ -f "$XDG_CONFIG_HOME/path.bash" ]; then
+	source "${XDG_CONFIG_HOME}/path.bash"
+fi
+
