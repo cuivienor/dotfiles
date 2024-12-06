@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# Shamelessly lifted from prime https://github.com/ThePrimeagen/tmux-sessionizer
+
+switch_to() {
+	if [[ -z $TMUX ]]; then
+		tmux attach-session -t "$1"
+	else
+		tmux switch-client -t "$1"
+	fi
+}
+has_session() {
+	tmux list-sessions | grep -q "^$1:"
+}
+
+if [[ $# -eq 1 ]]; then
+	selected=$1
+else
+	selected="$(find ~/dev -mindepth 1 -maxdepth 1 -type d | fzf)"
+fi
+
+if [[ -z $selected ]]; then
+	exit 0
+fi
+
+# TODO: Currently this trusts user input to be a valid directory. possibly integrate this with zoxide to find the meant directory
+
+selected_name=$(basename "$selected" | tr . _)
+tmux_running=$(pgrep tmux)
+
+# Tmux is not running -> create new session
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+	tmux new-session -s "$selected_name" -c "$selected"
+	# run init script
+	exit 0
+fi
+
+if ! has_session "$selected_name"; then
+	tmux new-session -d -s "$selected_name" -c "$selected"
+	# run init script
+fi
+
+switch_to "$selected_name"
