@@ -1,3 +1,16 @@
+# Configure XDG data environment
+if [ -f "$HOME/.config/xdg_config.bash" ]; then
+	source "$HOME/.config/xdg_config.bash"
+fi
+
+# Modify Path
+if [ -f "$XDG_CONFIG_HOME/path.bash" ]; then
+	source "${XDG_CONFIG_HOME}/path.bash"
+fi
+
+# Remove duplicate paths which can happen in nester shell invokations
+typeset -U PATH
+
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="catppuccin"
@@ -29,11 +42,4 @@ source $ZSH/oh-my-zsh.sh
 eval "$(starship init zsh)"
 
 source <(fzf --zsh)
-
-export XDG_CONFIG_HOME="$HOME/.config/"
-
-# Modify Path
-if [ -f "$XDG_CONFIG_HOME/path.bash" ]; then
-	source "${XDG_CONFIG_HOME}/path.bash"
-fi
 
