@@ -13,10 +13,16 @@ has_session() {
 	tmux list-sessions | grep -q "^$1:"
 }
 
+init() {
+	if [ -f "$2/.tmux-init.bash" ]; then
+		tmux send-keys -t "$1" "source $2/.tmux-init.bash" c-M
+	fi
+}
+
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected="$(find ~/dev -mindepth 1 -maxdepth 1 -type d | fzf)"
+	selected="$(find ~/dev ~/ -mindepth 1 -maxdepth 1 -type d | fzf)"
 fi
 
 if [[ -z $selected ]]; then
@@ -32,13 +38,13 @@ tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
 	tmux new-session -s "$selected_name" -c "$selected"
-	# run init script
+	init "$selected_name" "$selected"
 	exit 0
 fi
 
 if ! has_session "$selected_name"; then
 	tmux new-session -d -s "$selected_name" -c "$selected"
-	# run init script
+	init "$selected_name" "$selected"
 fi
 
 switch_to "$selected_name"
