@@ -37,9 +37,8 @@ tmux_running=$(pgrep tmux)
 # Tmux is not running -> create new session
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-	tmux new-session -s "$selected_name" -c "$selected"
+	tmux new-session -d -s "$selected_name" -c "$selected"
 	tmux_init "$selected_name" "$selected"
-	exit 0
 fi
 
 if ! has_session "$selected_name"; then
