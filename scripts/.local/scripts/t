@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Shamelessly lifted from prime https://github.com/ThePrimeagen/tmux-sessionizer
+# Tweaked using https://github.com/27medkamal/tmux-session-wizard/ as extra inspiration
 
 switch_to() {
 	if [[ -z $TMUX ]]; then
@@ -37,8 +38,6 @@ fi
 
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
-
-# Tmux is not running -> create new session
 
 if [[ -z $tmux_running ]] || ! has_session "$selected_name"; then
 	tmux new-session -d -s "$selected_name" -c "$selected"
