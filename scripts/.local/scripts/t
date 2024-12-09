@@ -35,19 +35,12 @@ if [[ -z $selected ]]; then
 	exit 0
 fi
 
-# TODO: Currently this trusts user input to be a valid directory. possibly integrate this with zoxide to find the meant directory
-
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
 # Tmux is not running -> create new session
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-	tmux new-session -d -s "$selected_name" -c "$selected"
-	tmux_init "$selected_name" "$selected"
-fi
-
-if ! has_session "$selected_name"; then
+if [[ -z $tmux_running ]] || ! has_session "$selected_name"; then
 	tmux new-session -d -s "$selected_name" -c "$selected"
 	tmux_init "$selected_name" "$selected"
 fi
