@@ -25,10 +25,10 @@ if [[ $# -eq 1 ]]; then
 	if [ -d "$1" ]; then
 		selected=$(realpath "$1")
 	else
-		selected=$(zoxide query --interactive "$1")
+		selected=$(_ZO_FZF_OPTS="--tmux=center" zoxide query --interactive "$1")
 	fi
 else
-	selected="$(find ~/dev ~/ -mindepth 1 -maxdepth 1 -type d | fzf)"
+	selected="$(find ~/dev ~/ -mindepth 1 -maxdepth 1 -type d | fzf --tmux=center)"
 fi
 
 if [[ -z $selected ]]; then
