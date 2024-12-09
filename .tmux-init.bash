@@ -6,3 +6,6 @@ tmux rename-window "nvim"
 
 # Create scratch window
 tmux new-window -n scratch
+
+# Start in nvim window
+tmux select-window -t nvim
