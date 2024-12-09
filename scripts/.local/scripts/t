@@ -14,8 +14,10 @@ has_session() {
 }
 
 tmux_init() {
-	if [ -f "$2/.tmux-init.bash" ]; then
-		tmux send-keys -t "$1" "source $2/.tmux-init.bash" c-M
+	if [ -f "$2/.t" ]; then
+		tmux send-keys -t "$1" "source $2/.t" c-M
+	elif [ -f "$HOME/.t" ]; then
+		tmux send-keys -t "$1" "source $HOME/.t" c-M
 	fi
 }
 
