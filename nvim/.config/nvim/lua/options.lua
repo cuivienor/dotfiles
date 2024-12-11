@@ -56,3 +56,6 @@ vim.opt.scrolloff = 10
 
 -- Set highlight on search
 vim.opt.hlsearch = true
+
+-- Default formatting
+vim.opt.shiftwidth = 4
