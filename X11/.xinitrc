@@ -40,4 +40,6 @@ twm &
 xclock -geometry 50x50-1+1 &
 xterm -geometry 80x50+494+51 &
 xterm -geometry 80x20+494-0 &
+
+source "$XDG_CONFIG_HOME/screenlayout/default.sh"
 exec i3
