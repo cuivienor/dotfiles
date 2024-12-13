@@ -39,6 +39,8 @@ eval "$(zoxide init zsh)"
 plugins=(aliases alias-finder git git-auto-fetch gpg-agent sudo zsh-autosuggestions zsh-navigation-tools zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+
+export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 eval "$(starship init zsh)"
 
 source <(fzf --zsh)
