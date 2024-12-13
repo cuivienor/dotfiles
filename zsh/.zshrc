@@ -36,7 +36,7 @@ bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 
 eval "$(zoxide init zsh)"
-plugins=(aliases alias-finder git git-auto-fetch gpg-agent sudo zsh-autosuggestions zsh-navigation-tools zsh-syntax-highlighting)
+plugins=(aliases alias-finder git git-auto-fetch gpg-agent sudo zsh-autosuggestions zsh-navigation-tools zsh-syntax-highlighting zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
