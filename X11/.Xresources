@@ -4,4 +4,4 @@ Xft.hinting: 1
 Xft.hintstyle: hintslight
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
-Xft.font: Noto Sans
+Xft.font: NotoSans Nerd Font
