@@ -197,13 +197,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-
-# Default applications to start
-exec spotify-launcher
-exec ghostty
-exec chromium
-
-
 # Theme setup
 # TODO Use proper imports
 set $rosewater #f5e0dc
@@ -259,3 +252,12 @@ bar {
 }
 
 hide_edge_borders both
+
+# Deamons to run on start
+exec --no-startup-id picom -b
+
+# Default applications to start
+exec spotify-launcher
+exec ghostty
+exec chromium
+
