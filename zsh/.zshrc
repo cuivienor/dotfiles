@@ -11,6 +11,11 @@ fi
 # Remove duplicate paths which can happen in nester shell invokations
 typeset -U PATH
 
+# Source secrets if they exist
+if [ -f "$HOME/.env" ]; then
+	source "$HOME/.env"
+fi
+
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="catppuccin"
@@ -39,6 +44,12 @@ eval "$(zoxide init zsh)"
 plugins=(aliases alias-finder git git-auto-fetch gpg-agent sudo zsh-autosuggestions zsh-navigation-tools zsh-syntax-highlighting zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
+
+# Enable alias finder plugin
+zstyle ':omz:plugins:alias-finder' autoload yes 
+# zstyle ':omz:plugins:alias-finder' longer yes 
+zstyle ':omz:plugins:alias-finder' exact yes 
+# zstyle ':omz:plugins:alias-finder' cheaper yes 
 
 export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 eval "$(starship init zsh)"
