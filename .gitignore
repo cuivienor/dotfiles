@@ -1,4 +1,4 @@
-tmux/.config/tmux/plugins/
-zsh/.config/zsh/plugins/
+stow/tmux/.config/tmux/plugins/
+stow/zsh/.config/zsh/plugins/
 catppuccin_mocha-zsh-syntax-highlighting.zsh
 .env
