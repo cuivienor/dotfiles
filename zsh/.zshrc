@@ -1,3 +1,4 @@
+ZSH_CUSTOM=$HOME/.config/zsh
 # Configure XDG data environment
 if [ -f "$HOME/.config/xdg_config.bash" ]; then
 	source "$HOME/.config/xdg_config.bash"
@@ -16,13 +17,17 @@ if [ -f "$HOME/.env" ]; then
 	source "$HOME/.env"
 fi
 
+# Source custom aliases
+if [ -f "$ZSH_CUSTOM/aliases.bash" ]; then
+  source "$ZSH_CUSTOM/aliases.bash"
+fi
+
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="catppuccin"
 
 zstyle ':omz:update' mode reminder  
 
-ZSH_CUSTOM=$HOME/.config/zsh
 
 # AUTOCOMPLETION
 
