@@ -220,6 +220,7 @@ return { -- LSP Configuration & Plugins
 			"yamlfix",
 			"yamllint",
 			"tflint",
+			"markdownlint",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
