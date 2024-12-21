@@ -5,6 +5,9 @@ return {
 		local lint = require("lint")
 		lint.linters_by_ft = {
 			markdown = { "markdownlint" },
+			sh = { "shellcheck" },
+			bash = { "shellcheck" },
+			zsh = { "shellcheck" },
 		}
 
 		-- Create autocommand which carries out the actual linting

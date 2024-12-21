@@ -26,6 +26,7 @@ return { -- Autoformat
 		formatters_by_ft = {
 			lua = { "stylua" },
 			sh = { "shfmt" },
+			bash = { "shfmt" },
 			yaml = { "yamlfix" },
 			tf = { "terraform_fmt" },
 			markdown = { "prettierd" },
