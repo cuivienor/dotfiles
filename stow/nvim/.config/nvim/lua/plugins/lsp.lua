@@ -221,6 +221,7 @@ return { -- LSP Configuration & Plugins
 			"yamllint",
 			"tflint",
 			"markdownlint",
+			"prettierd",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

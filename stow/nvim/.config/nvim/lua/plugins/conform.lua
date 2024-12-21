@@ -27,7 +27,8 @@ return { -- Autoformat
 			lua = { "stylua" },
 			sh = { "shfmt" },
 			yaml = { "yamlfix" },
-			tf = { "tflint" },
+			tf = { "terraform_fmt" },
+			markdown = { "prettierd" },
 			-- Conform can also run multiple formatters sequentially
 			-- python = { "isort", "black" },
 			--
