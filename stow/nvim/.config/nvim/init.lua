@@ -44,6 +44,9 @@ require("lazy").setup({
 			lazy = "💤 ",
 		},
 	},
+	checker = {
+		enabled = true,
+	},
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
