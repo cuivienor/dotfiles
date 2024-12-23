@@ -19,15 +19,14 @@ fi
 
 # Source custom aliases
 if [ -f "$ZSH_CUSTOM/aliases.bash" ]; then
-  source "$ZSH_CUSTOM/aliases.bash"
+	source "$ZSH_CUSTOM/aliases.bash"
 fi
 
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="catppuccin"
 
-zstyle ':omz:update' mode reminder  
-
+zstyle ':omz:update' mode reminder
 
 # AUTOCOMPLETION
 
@@ -51,10 +50,10 @@ plugins=(aliases alias-finder git git-auto-fetch gpg-agent sudo zsh-autosuggesti
 source $ZSH/oh-my-zsh.sh
 
 # Enable alias finder plugin
-zstyle ':omz:plugins:alias-finder' autoload yes 
-# zstyle ':omz:plugins:alias-finder' longer yes 
-zstyle ':omz:plugins:alias-finder' exact yes 
-# zstyle ':omz:plugins:alias-finder' cheaper yes 
+zstyle ':omz:plugins:alias-finder' autoload yes
+# zstyle ':omz:plugins:alias-finder' longer yes
+zstyle ':omz:plugins:alias-finder' exact yes
+# zstyle ':omz:plugins:alias-finder' cheaper yes
 
 export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 eval "$(starship init zsh)"
@@ -70,7 +69,7 @@ export MANROFFOPT="-c"
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
-
+# TODO: Doesn't actually work due to passphrase. Look into integrating with a keyring manager
 if [ -z "$(ssh-add -l 2>/dev/null)" ]; then
-  ssh-add ~/.ssh/id_ed25519
+	ssh-add ~/.ssh/id_ed25519
 fi
