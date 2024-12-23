@@ -19,6 +19,10 @@ return { -- Highlight, edit, and navigate code
 
 		-- Prefer git instead of curl in order to improve connectivity in some environments
 		require("nvim-treesitter.install").prefer_git = true
+
+		-- There is no treesitter zsh support so use bash instead
+		vim.treesitter.language.register("bash", "zsh")
+
 		---@diagnostic disable-next-line: missing-fields
 		require("nvim-treesitter.configs").setup(opts)
 
