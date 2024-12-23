@@ -66,3 +66,11 @@ source <(fzf --zsh)
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
+# Configure ssh agent (Relies on a user systemd service)
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+
+if [ -z "$(ssh-add -l 2>/dev/null)" ]; then
+  ssh-add ~/.ssh/id_ed25519
+fi
