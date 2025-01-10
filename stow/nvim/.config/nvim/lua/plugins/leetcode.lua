@@ -36,7 +36,10 @@ return {
 
 		injector = {
 			["cpp"] = {
-				before = true,
+				before = {
+					"#include <vector>",
+					"using namespace std;",
+				},
 			},
 		}, ---@type table<lc.lang, lc.inject>
 
