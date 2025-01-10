@@ -176,7 +176,12 @@ return { -- LSP Configuration & Plugins
 					},
 				},
 			},
-			clangd = {},
+			clangd = {
+				cmd = {
+					"clangd",
+					"--offset-encoding=utf-16",
+				},
+			},
 			["cmake-language-server"] = {},
 			ansiblels = {},
 			lua_ls = {
