@@ -20,3 +20,14 @@ ansiblels
 terraformls
 yamlfix
 tflint
+vimdoc
+keymaps
+textobjects
+textobject
+charwise
+linewise
+blockwise
+echasnovski
+yinq
+saiw
+statusline

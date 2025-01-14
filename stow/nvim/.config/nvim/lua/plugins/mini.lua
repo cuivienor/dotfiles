@@ -1,24 +1,29 @@
 return {
 	"echasnovski/mini.nvim",
 	config = function()
-		-- Better Around/Inside textobjects
+		-- better around/inside textobjects
 		--
-		-- Examples:
-		--  - va)  - [V]isually select [A]round [)]paren
-		--  - yinq - [Y]ank [I]nside [N]ext [']quote
-		--  - ci'  - [C]hange [I]nside [']quote
+		-- examples:
+		--  - va)  - visually select around [)]paren
+		--  - yinq - yank inside next quote
+		--  - ci'  - change inside quote
 		require("mini.ai").setup({
 			n_lines = 500,
 			custom_textobjects = {
-				F = require("mini.ai").gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
+				o = require("mini.ai").gen_spec.treesitter({
+					a = { "@block.outer", "@conditional.outer", "@loop.outer" },
+					i = { "@block.inner", "@conditional.inner", "@loop.inner" },
+				}),
+				f = require("mini.ai").gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
+				["="] = require("mini.ai").gen_spec.treesitter({ a = "@assignment.outer", i = "@assignment.inner" }),
 			},
 		})
 
 		-- Add/delete/replace surroundings (brackets, quotes, etc.)
 		--
-		-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-		-- - sd'   - [S]urround [D]elete [']quotes
-		-- - sr)'  - [S]urround [R]eplace [)] [']
+		-- - saiw) - Surround Add Inner Word Paren
+		-- - sd'   - Surround Delete 'quotes
+		-- - sr)'  - Surround Replace ) '
 		require("mini.surround").setup()
 
 		-- Simple and easy statusline.
