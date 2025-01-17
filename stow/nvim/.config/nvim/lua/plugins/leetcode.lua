@@ -38,6 +38,7 @@ return {
 			["cpp"] = {
 				before = {
 					"#include <vector>",
+					"#include <string>",
 					"using namespace std;",
 				},
 			},
@@ -106,4 +107,12 @@ return {
 		---@type boolean
 		image_support = false,
 	},
+	config = function(_, opt)
+		require("leetcode").setup(opt)
+
+		vim.opt.tabstop = 2
+		vim.opt.shiftwidth = 2
+		vim.opt.expandtab = true
+		vim.opt.softtabstop = 2
+	end,
 }
