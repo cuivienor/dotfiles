@@ -31,3 +31,11 @@ echasnovski
 yinq
 saiw
 statusline
+catppuccin
+neww
+keybinds
+christoomey
+xclip
+softtabstop
+expandtab
+shiftwidth
