@@ -73,3 +73,5 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 if [ -z "$(ssh-add -l 2>/dev/null)" ]; then
 	ssh-add ~/.ssh/id_ed25519
 fi
+
+. "$HOME/.local/share/../bin/env"
