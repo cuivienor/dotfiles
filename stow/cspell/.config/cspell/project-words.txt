@@ -39,3 +39,7 @@ xclip
 softtabstop
 expandtab
 shiftwidth
+chromacity
+distict
+Fenwick
+Petrov
