@@ -12,6 +12,7 @@ return { -- Highlight, edit, and navigate code
 			"lua",
 			"luadoc",
 			"markdown",
+			"regex",
 			"vim",
 			"vimdoc",
 		},
