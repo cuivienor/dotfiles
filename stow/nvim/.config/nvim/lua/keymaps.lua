@@ -24,3 +24,37 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
 vim.keymap.set("n", "<space>x", ":.lua<CR>")
 vim.keymap.set("v", "<space>x", ":lua<CR>")
+
+-- Custom keymaps
+-- Move file keybinding and logic
+-- TODO: Move this function in a separate appropriate place
+vim.keymap.set("n", "<leader>mv", function()
+	local current_file = vim.fn.expand("%:p")
+	local current_file_name = vim.fn.fnamemodify(current_file, ":t")
+
+	require("telescope.builtin").find_files({
+		prompt_title = "Select Folder to Move File",
+		cwd = vim.fn.getcwd(), -- Start from the current working directory
+		find_command = { "find", ".", "-type", "d", "-not", "-path", "./.git/*" }, -- Use find to get directories
+		attach_mappings = function(prompt_bufnr, map)
+			map("i", "<CR>", function()
+				local new_dir = require("telescope.actions.state").get_selected_entry().path
+				require("telescope.actions").close(prompt_bufnr)
+
+				-- Ask for confirmation/edit of new filename
+				vim.ui.input({ prompt = "New filename: ", default = current_file_name }, function(new_file_name)
+					if new_file_name and #new_file_name > 0 then
+						local new_file_path = new_dir .. "/" .. new_file_name
+						vim.fn.mkdir(new_dir, "p") -- Ensure the directory exists
+						vim.fn.rename(current_file, new_file_path) -- Move the file
+						vim.cmd("e " .. new_file_path) -- Open the new file
+						vim.cmd("bw " .. current_file) -- Close the old file
+					else
+						print("Move cancelled")
+					end
+				end)
+			end)
+			return true
+		end,
+	})
+end, { desc = "Move file to a new directory" })
