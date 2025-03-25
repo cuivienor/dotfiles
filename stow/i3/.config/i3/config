@@ -260,7 +260,7 @@ hide_edge_borders both
 exec --no-startup-id picom -b
 
 # Default applications to start
-exec spotify-launcher
+exec --no-startup-id i3-msg "workspace $ws2; exec ~/.local/scripts/start-notes.bash"
 exec ghostty
 exec chromium
 
