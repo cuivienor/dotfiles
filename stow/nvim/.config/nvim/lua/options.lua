@@ -64,4 +64,4 @@ vim.opt.expandtab = true
 vim.opt.softtabstop = 4
 
 -- Conceal level for obsidian.nvim
-vim.opt.conceallevel = 1
+vim.opt.conceallevel = 2
