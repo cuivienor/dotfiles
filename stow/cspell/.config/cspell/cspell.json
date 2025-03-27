@@ -6,9 +6,14 @@
       "name": "project-words",
       "path": "./project-words.txt",
       "addWords": true
+    },
+    {
+      "name": "personal",
+      "path": "./personal.txt",
+      "addWords": true
     }
   ],
-  "dictionaries": ["project-words"],
-  "ignorePaths": ["node_modules", "/project-words.txt"]
+  "dictionaries": ["project-words", "personal"],
+  "ignorePaths": ["node_modules"]
 }
 
