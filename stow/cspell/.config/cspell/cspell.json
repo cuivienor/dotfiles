@@ -14,6 +14,12 @@
     }
   ],
   "dictionaries": ["project-words", "personal"],
+  "overrides": [
+    {
+      "filename": "~/.local/share/nvim/gp/**/*.md",
+      "enabled": false
+    }
+  ]
   "ignorePaths": ["node_modules"]
 }
 
