@@ -10,12 +10,12 @@ return {
 			zsh = { "shellcheck" },
 		}
 
-		-- local markdownlint = require("lint").linters.markdownlint
-		-- markdownlint.args = {
-		-- 	"--disable",
-		-- 	"MD013",
-		-- 	"--",
-		-- }
+		local markdownlint = require("lint").linters.markdownlint
+		markdownlint.args = {
+			"--disable",
+			"MD013",
+			"--",
+		}
 
 		-- Create autocommand which carries out the actual linting
 		-- on the specified events.
