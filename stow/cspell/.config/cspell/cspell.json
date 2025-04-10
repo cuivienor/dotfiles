@@ -11,15 +11,19 @@
       "name": "personal",
       "path": "./personal.txt",
       "addWords": true
+    },
+    {
+      "name": "names",
+      "path": "./names.txt",
+      "addWords": true
+    },
+    {
+      "name": "software",
+      "path": "./software.txt",
+      "addWords": true
     }
   ],
-  "dictionaries": ["project-words", "personal"],
-  "overrides": [
-    {
-      "filename": "~/.local/share/nvim/gp/**/*.md",
-      "enabled": false
-    }
-  ]
+  "dictionaries": ["project-words", "personal", "names", "software"],
   "ignorePaths": ["node_modules"]
 }
 
