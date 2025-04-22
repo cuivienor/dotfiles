@@ -1,6 +1,6 @@
 return {
 	"nvimtools/none-ls.nvim",
-	-- enabled = false,
+	enabled = false,
 	dependencies = { "nvim-lua/plenary.nvim", "davidmh/cspell.nvim" },
 	config = function()
 		local null_ls = require("null-ls")
