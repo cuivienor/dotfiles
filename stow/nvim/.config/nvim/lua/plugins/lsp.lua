@@ -191,6 +191,7 @@ return { -- LSP Configuration & Plugins
 					"terraform",
 				},
 			},
+			pyright = {},
 		}
 
 		-- Ensure the servers and tools above are installed
