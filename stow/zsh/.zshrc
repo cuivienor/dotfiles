@@ -17,11 +17,6 @@ if [ -f "$HOME/.env" ]; then
 	source "$HOME/.env"
 fi
 
-# Source custom aliases
-if [ -f "$ZSH_CUSTOM/aliases.bash" ]; then
-	source "$ZSH_CUSTOM/aliases.bash"
-fi
-
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="catppuccin"
@@ -59,6 +54,12 @@ export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 eval "$(starship init zsh)"
 
 source <(fzf --zsh)
+
+# Source custom aliases
+if [ -f "$ZSH_CUSTOM/aliases.bash" ]; then
+	source "$ZSH_CUSTOM/aliases.bash"
+fi
+
 
 # Bat integrations
 
